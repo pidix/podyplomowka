@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+	<style type="text/css">
+		.title{
+			font-size: 30px;
+			font-weight:bold;
+			color: white;
+		}
+		.rejestracja{
+			font-weight: bold;
+			color: white;
+		}
+	</style>
+</head>
+	
+<body bgcolor="black">
+	<h:form>
+	<div style="text-align: right;">
+		<!--<h:commandLink value="Rejestracja" styleClass="rejestracja"></h:commandLink>-->
+		<h:outputLink value="register.xhtml" styleClass="rejestracja">Rejestracja</h:outputLink>
+	</div>
+	<center>
+		<h:outputLabel value="Strona logowania" styleClass="title"></h:outputLabel>
+	</center>	
+	</h:form>
+	
+	<h:form>
+		<center>
+			<table border="0">
+				<tr>
+					<td style="color: white;"><h:outputLabel value="Login"></h:outputLabel></td>
+					<td style="color: white;"><h:inputText value="#{UserLoginBean.login}"></h:inputText></td>
+				</tr>
+				<tr>
+					<td style="color: white;"><h:outputLabel value="Pssword"></h:outputLabel></td>
+					<td style="color: white;"><h:inputSecret value="#{UserLoginBean.password}"/></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<h:commandButton action="#{UserLoginBean.logowanie}" value="Zaloguj"></h:commandButton>
+					</td>
+				</tr>									
+			</table>
+		</center>	
+	</h:form>
+	
+</body>
+</html>

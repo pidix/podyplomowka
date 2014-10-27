@@ -1,0 +1,85 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+<head>
+	<style type="text/css">
+		.title{
+			font-size: 30px;
+			font-weight:bold;
+			color: white;
+		}
+		.rejestracja{
+			font-weight: bold;
+			color: white;
+		}
+	</style>
+</head>	
+	
+<body bgcolor="black">
+	<h:form>
+
+		<h:form>
+		<div style="text-align: right;">
+			<h:outputText value="Zalogowany jako #{UserLoginBean.firstname_name}" styleClass="rejestracja"></h:outputText>
+		</div>
+		<div style="text-align: right;">
+			<h:commandButton value="Wyloguj" action="#{UserLoginBean.logout}"></h:commandButton>
+		</div>	
+		</h:form>
+		
+		<h:dataTable id="user" value="#{UserBean.users}" var="u" border="1">
+			<f:facet name="header" style="text-align:center">
+				<h:outputText value="Lista użytkowników" style="color:white"></h:outputText>
+			</f:facet>			
+			<h:column style="width:400px;">
+				<f:facet name="header" style="text-align:center">
+					<h:outputText value="ID" style="color:white"></h:outputText>					
+				</f:facet>
+				<h:outputText value="#{u.id}" style="color:white"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header" style="text-align:center">
+					<h:outputText value="LOGIN" style="color:white"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.login}" style="color:white"></h:outputText>					
+			</h:column>	
+			<h:column>
+				<f:facet name="header" style="text-align:center">
+					<h:outputText value="IMIE" style="color:white"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.first_name}" style="color:white"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header" style="text-align:center">
+					<h:outputText value="NAZWISKO" style="color:white"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.name}" style="color:white"></h:outputText>
+			</h:column>	
+			<h:column>
+				<f:facet name="header" style="text-align:center">
+					<h:outputText value="E-MAIL" style="color:white"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{u.e_mail}" style="color:white"></h:outputText>
+			</h:column>
+			<h:column>
+				<f:facet name="header" style="text-align:center">
+					<h:outputText value="Edycja" style="color:white"></h:outputText>
+				</f:facet>
+				<h:commandLink value="Edit" action="#{UserBean.edit}" style="text-align:center">
+					<f:setPropertyActionListener target="#{UserBean.user}" value="#{u}"></f:setPropertyActionListener>
+				</h:commandLink>
+				<br></br>
+				<h:commandLink value="Delete" action="#{UserBean.delete}" style="text-align:center">
+					<f:setPropertyActionListener target="#{UserBean.user}" value="#{u}"></f:setPropertyActionListener>
+				</h:commandLink>				
+			</h:column>																						
+		</h:dataTable>
+	</h:form>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+<style type="text/css">
+.title {
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+}
+
+.rejestracja {
+	font-weight: bold;
+	color: white;
+}
+
+.textPane {
+	display: block;
+	width: 300px;
+}
+</style>
+</head>
+
+<body bgcolor="black">
+	<h:form>
+		<center>
+			<h:outputLabel value="Rejestracja" styleClass="title"></h:outputLabel>
+		</center>
+	</h:form>
+	<h:form id="register">
+		<table border="0" cellspacing="15px;">
+			<tr>
+				<td style="color: white;" align="right"><h:outputLabel
+						value="Login"></h:outputLabel></td>
+				<td style="color: white;">
+					<h:inputText id="login" value="#{UserBean.login}" styleClass="textPane" redisplay="false">
+						<f:validator validatorId="LoginValidator"></f:validator>
+					</h:inputText>
+				</td>
+				<td>
+					<h:message for="login" style="color:red"></h:message>
+				</td>				
+				
+			</tr>
+			<tr>
+				<td style="color: white;" align="right"><h:outputLabel value="Password"></h:outputLabel></td>
+				<td style="color: white;">
+					<h:inputSecret id="password" value="#{UserBean.password}" redisplay="false" styleClass="textPane">
+					</h:inputSecret>
+				</td>
+				<td>
+					<h:message for="confirm" style="color:red"></h:message>
+				</td>
+			</tr>
+			<tr>
+				<td style="color: white;" align="right"><h:outputLabel value="Confirm Password"></h:outputLabel></td>
+				<td style="color: white;">
+					<h:inputSecret id="confirm" value="#{UserBean.confirm_password}" redisplay="false" styleClass="textPane">
+						<f:validator validatorId="PasswordValidator"></f:validator>
+						<f:attribute name="passwordID" value="register:password"></f:attribute>
+					</h:inputSecret>
+				</td>
+				<td>
+					<h:message for="confirm" style="color:red"></h:message>
+				</td>
+			</tr>
+			<tr>
+				<td style="color: white;" align="right">
+				<h:outputLabel value="Imie"></h:outputLabel></td>
+				<td style="color: white;">
+					<h:inputText id="first_name" value="#{UserBean.firstname}" redisplay="false" styleClass="textPane" required="true" requiredMessage="Pole jest wymagane">
+					</h:inputText>
+				</td>
+				<td>
+					<h:message for="first_name" style="color:red"></h:message>
+				</td>				
+			</tr>
+			<tr>
+				<td style="color: white;" align="right">
+					<h:outputLabel value="Nazwisko">
+					</h:outputLabel>
+				</td>
+				<td style="color: white;">
+					<h:inputText id="name" value="#{UserBean.name}" styleClass="textPane" redisplay="false" required="true" requiredMessage="Pole jest wymagane">
+					</h:inputText>
+				</td>
+				<td>
+					<h:message for="name" style="color:red"></h:message>
+				</td>				
+			</tr>
+			<tr>
+				<td style="color: white;" align="right">
+					<h:outputLabel value="E-Mail">
+					</h:outputLabel>
+				</td>
+				<td style="color: white;">
+					<h:inputText id="email" value="#{UserBean.email}" styleClass="textPane" redisplay="false" required="true" requiredMessage="Pole jest wymagane">
+					</h:inputText>
+				</td>
+				<td>
+					<h:message for="email" style="color:red">
+					</h:message>
+				</td>						
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><h:commandButton
+						action="#{UserBean.addUser}" value="Rejestruj"></h:commandButton>
+				</td>
+			</tr>
+		</table>
+	</h:form>
+</body>
+</html>

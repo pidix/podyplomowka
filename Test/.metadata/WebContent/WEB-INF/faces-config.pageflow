@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf14144042724670" configfile="/Test/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="index.xhtml" id="pf14144058100010" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf14144058100011 pf14144058100012" inlinks="pf14144058100013" path="/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="welcom.xhtml" x="264" y="12" id="pf14144058100014" referenceLink="//@navigationRule.4/@navigationCase.0/@toViewId|" inlinks="pf14144058100011 pf14144058100015" path="/welcom.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="error.xhtml" x="60" y="300" id="pf14144058100016" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" inlinks="pf14144058100012 pf14144058100017" path="/error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="register.xhtml" x="372" y="204" id="pf14144058100018" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf14144058100017 pf14144058100013" path="/register.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="user_edit.xhtml" x="480" y="12" id="pf14144058100019" referenceLink="//@navigationRule.4/@fromViewId|" outlinks="pf14144058100015" path="/user_edit.xhtml"/>
+  <links id="pf14144058100011" target="pf14144058100014" source="pf14144058100010" outcome="success"/>
+  <links id="pf14144058100012" target="pf14144058100016" source="pf14144058100010" outcome="false"/>
+  <links id="pf14144058100017" target="pf14144058100016" source="pf14144058100018" outcome="false"/>
+  <links id="pf14144058100013" target="pf14144058100010" source="pf14144058100018" outcome="success"/>
+  <links id="pf14144058100015" target="pf14144058100014" source="pf14144058100019" outcome="success"/>
+</pageflow:Pageflow>

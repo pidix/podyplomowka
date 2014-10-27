@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+<style type="text/css">
+.title {
+	font-size: 30px;
+	font-weight: bold;
+	color: white;
+}
+
+.rejestracja {
+	font-weight: bold;
+	color: white;
+}
+
+.textPane{
+	display: block;
+	width: 300px;
+}
+</style>
+</head>
+
+<body bgcolor="black">
+	<h:form>
+		<div style="text-align: right;">
+			<h:outputText value="#{UserLoginBean.firstname_name}"
+				styleClass="rejestracja"></h:outputText>
+		</div>
+		<div style="text-align: right;">
+			<h:commandButton value="Wyloguj" action="#{UserLoginBean.logout}"></h:commandButton>
+		</div>
+	</h:form>
+	<h:form id="register">
+		<table border="0" cellspacing="15px;">
+			<tr style="display: none;">
+				<td>
+				</td>
+				<td style="color: white;">
+					<h:outputLabel value="#{UserBean.id}" styleClass="textPane" >
+					</h:outputLabel>
+				</td>
+			</tr>		
+			<tr>
+				<td style="color: white;" align="right"><h:outputLabel
+						value="Login"></h:outputLabel></td>
+				<td style="color: white;">
+					<h:outputLabel value="#{UserBean.login}" styleClass="textPane" >
+					</h:outputLabel>
+				</td>
+			</tr>
+			<tr>
+				<td style="color: white;" align="right">
+					<h:outputLabel value="Password">
+					</h:outputLabel>
+				</td>
+				<td style="color: white;">
+					<h:inputSecret id="password" value="#{UserBean.password}" redisplay="false" styleClass="textPane">
+					</h:inputSecret>
+				</td>
+				<td>
+					<h:message for="confirm" style="color:red"></h:message>
+				</td>
+			</tr>
+			<tr>
+				<td style="color: white;" align="right">
+					<h:outputLabel value="Confirm Password">
+					</h:outputLabel>
+				</td>
+				<td style="color: white;">
+					<h:inputSecret id="confirm" value="#{UserBean.confirm_password}" redisplay="false" styleClass="textPane">
+						<f:validator validatorId="PasswordValidator"></f:validator>
+						<f:attribute name="passwordID" value="register:password"></f:attribute>
+					</h:inputSecret>
+				</td>
+				<td>
+					<h:message for="confirm" style="color:red"></h:message>
+				</td>
+			</tr>						
+			<tr>
+				<td style="color: white;" align="right">
+					<h:outputLabel value="Imie">
+					</h:outputLabel>
+				</td>
+				<td style="color: white;">
+					<h:inputText value="#{UserBean.firstname}" styleClass="textPane" required="true">
+					</h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td style="color: white;" align="right">
+					<h:outputLabel value="Nazwisko">
+					</h:outputLabel>
+					</td>
+				<td style="color: white;">
+					<h:inputText value="#{UserBean.name}" styleClass="textPane" required="true">
+					</h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td style="color: white;" align="right">
+					<h:outputLabel value="E-Mail">
+					</h:outputLabel>
+				</td>
+				<td style="color: white;">
+					<h:inputText value="#{UserBean.email}" required="true" styleClass="textPane">
+					</h:inputText>
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>
+					<center>
+						<h:commandButton action="#{UserBean.saveUser}" value="Zapisz">
+						</h:commandButton>				
+						<h:commandButton action="#{UserBean.goStartPage}" immediate="true" value="Anuluj">
+						</h:commandButton>
+					</center>				
+				</td>
+				<td>		
+				</td>
+			</tr>			
+		</table>
+	</h:form>
+</body>
+</html>
